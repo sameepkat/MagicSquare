@@ -1,8 +1,13 @@
 void logic(int order)
 	{
-		int a[order][order];
-		//int **a = (int **)malloc(order * sizeof(int *));
+		int **a = (int **)malloc(order * sizeof(int *));
 		int q,r,i,j;
+			
+		for(q=0;q<order;q++)
+		{
+			a[q]=(int *)malloc(order * sizeof(int *));		
+		}
+
 		for(q=0;q<order;q++)
 		{
 			for(r=0;r<order;r++)
@@ -29,8 +34,8 @@ void logic(int order)
 				a[i][j]=q++;
 			}
 			else{
-				i=order-1;
-				j=0;
+				i+=2;
+				j--;
 				a[i][j]=q++;
 			}
 			i--;
@@ -39,11 +44,16 @@ void logic(int order)
 		printf("Printing the Magic sqaure of size %d\n",order);
 		for(q=0;q<order;q++)
 		{
+			printf(" |\t");
 			for(r=0;r<order;r++)
 			{
-				printf("%d\t",a[q][r]);
+				printf("%3d\t",a[q][r]);
 			}
-			printf("\n");
+			printf(" |\n");
 		}
-		//free(a);
+		for(q=0;q<order;q++)
+		{
+			free(a[q]);
+		}
+		free(a);
 }

@@ -1,2 +1,2 @@
 **This is an ongoing project.**
-For now, it just creates a square of 'n' order.
+For now, it can only generate magic sqaure of odd numbers
